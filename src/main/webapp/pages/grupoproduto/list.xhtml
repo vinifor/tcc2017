@@ -9,6 +9,9 @@
         <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
         <div>
             <h:form id="form" class="row sticky-body-open" prependId="false">
+                <p:remoteCommand name="ini" autoRun="true" update=":form:listm"
+                                 actionListener="#{grupoProdutoController.read}"/>
+
                 <p:remoteCommand name="criar" actionListener="#{grupoProdutoController.create()}"/>
                 
                 <div class="row">
