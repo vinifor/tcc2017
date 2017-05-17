@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.tcc2017.cotroller;
+package br.com.tcc2017.controller;
 
 import br.com.tcc2017.dao.GrupoProdutoDao;
 import br.com.tcc2017.model.GrupoProduto;
