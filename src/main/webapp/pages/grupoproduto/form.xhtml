@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+
+    <div class="row">
+        <div class="input-field field-blue-500 col s12">
+            <p:inputText type="text" value="#{grupoProdutoController.grupoProduto.descgrupo}"
+                         required="true" requiredMessage="Titúlo"
+                         id="descgrupo"/>
+            <p:outputLabel for="descgrupo" value="Nome do Grupo"/>
+        </div>
+    </div>
+</html>

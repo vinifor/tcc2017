@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+
+    <ui:define name="content">
+        <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+        <div class="ContainerIndent">
+            <h:form id="formin" class="row sticky-body-open" prependId="false">
+                <p:growl life="5000" autoUpdate="true"/>
+                <div class="EmptyBox20"/>
+                <div class="row">
+                    <div class="col s12 center">
+                        <ui:include src="form.xhtml"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <ui:include src="rodape.xhtml"/>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

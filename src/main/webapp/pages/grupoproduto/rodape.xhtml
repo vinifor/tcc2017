@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+
+    <p:remoteCommand name="cancelar" actionListener="#{grupoProdutoController.cancel()}" process="@this"/>
+    <p:remoteCommand name="salvar" actionListener="#{grupoProdutoController.save()}"/>
+
+    <div class="row">
+        <div class="col s6">
+            <p:link class="waves-effect waves-light btn-large Wid100 red darken-1"
+                    outcome="list.xhtml" onclick="cancelar()">
+                Cancelar 
+            </p:link>
+        </div> 
+        <div class="col s6">
+            <p:link class="waves-effect waves-light btn-large Wid100 green darken-1" 
+                    outcome="list.xhtml" onclick="salvar()">
+                Salvar
+            </p:link>
+        </div> 
+    </div> 
+</html>

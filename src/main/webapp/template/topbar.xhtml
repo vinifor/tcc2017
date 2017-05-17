@@ -10,50 +10,27 @@
         <h:form>
             <div class="navbar-fixed">
                 <nav>
-                    <div class="nav-wrapper teal">
-                        <a href="/erural/" class="brand-logo TexAlCenter hide-on-large-only">
-                            <h:graphicImage name="images/boi.svg" class="MarLeft10"
-                                            library="sentinel-layout" height="50" width="50"/>
-                        </a>
-                        <a href="/erural/" class="brand-logo hide-on-med-and-down">
-                            <h:graphicImage name="images/boi.svg" class=" MarLeft10"
-                                            library="sentinel-layout" height="50" width="50"/>
-                        </a>
-                        <a href="#" data-activates="mobile-demo" class="button-collapse">
+                    <div class="nav-wrapper blue ">
+                        <div class="TexAlCenter">
+                            <a href="/TCC2017/" class="brand-logo ">
+                                TCC2017
+                            </a>
+                        </div>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse ">
                             <i class="material-icons">menu</i>
                         </a>
 
-                        <ul class="right hide-on-med-and-down teal">
+                        <ul class="side-nav fixed" id="mobile-demo" style="max-width: 250px !important; position: fixed; transform: translateX(0%);">
                             <li>
-                                <p:commandLink actionListener="#{redirectBusiness.listAnuncio()}">
+                                <p:link outcome="/pages/grupoproduto/list.xhtml" onclick="#{grupoProdutoController.read()}">
                                     <!--<i class="icon-plus white"/>-->
-                                    Anuncio
-                                </p:commandLink>
+                                    Grupo de Produtos
+                                </p:link>
                             </li>
                             <li>
                                 <p:commandLink actionListener="#{pessoaBusiness.read()}">
                                     <!--<i class="icon-user-outline white"/>-->
-                                    Perfil
-                                </p:commandLink>
-                            </li>
-                            <li>
-                                <p:commandLink  actionListener="#{redirectBusiness.logout()}">
-                                    <!--<i class="icon-power white"/>-->
-                                    Sair
-                                </p:commandLink>
-                            </li>
-                        </ul>
-                        <ul class="side-nav" id="mobile-demo">
-                            <li>
-                                <p:commandLink actionListener="#{redirectBusiness.listAnuncio()}">
-                                    <!--<i class="icon-plus white"/>-->
-                                    Anuncio
-                                </p:commandLink>
-                            </li>
-                            <li>
-                                <p:commandLink actionListener="#{pessoaBusiness.read()}">
-                                    <!--<i class="icon-user-outline white"/>-->
-                                    Perfil
+                                    Produtos
                                 </p:commandLink>
                             </li>
                             <li>
