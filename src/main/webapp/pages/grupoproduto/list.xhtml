@@ -11,8 +11,6 @@
             <h:form id="form" class="row sticky-body-open" prependId="false">
                 <p:remoteCommand name="ini" autoRun="true" update=":form:listm"
                                  actionListener="#{grupoProdutoController.read}"/>
-
-                <p:remoteCommand name="criar" actionListener="#{grupoProdutoController.create()}"/>
                 
                 <div class="row">
                     <div class="EmptyBox10"/>
@@ -22,10 +20,9 @@
                     <ui:include src="datatable.xhtml"/>
 
                     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-                        <p:link class="btn-floating blue" onclick="criar()"
-                                outcome="edit.xhtml">
+                        <p:commandLink class="btn-floating blue" actionListener="#{grupoProdutoController.create()}">
                             <i class="large material-icons">add</i>
-                        </p:link>
+                        </p:commandLink>
                     </div>   
                 </div>
 

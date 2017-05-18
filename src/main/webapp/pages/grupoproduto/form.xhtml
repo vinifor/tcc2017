@@ -7,11 +7,22 @@
     <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
 
     <div class="row">
-        <div class="input-field field-blue-500 col s12">
-            <p:inputText type="text" value="#{grupoProdutoController.grupoProduto.descgrupo}"
-                         required="true" requiredMessage="Titúlo"
-                         id="descgrupo"/>
-            <p:outputLabel for="descgrupo" value="Nome do Grupo"/>
+        <div class="col s12 m8 l8">
+            <div class="input-field field-blue-500">
+                <p:inputText type="text" value="#{grupoProdutoController.grupoProduto.descgrupo}"
+                             required="true" requiredMessage="Nome do Grupo"
+                             id="descgrupo"/>
+                <p:outputLabel for="descgrupo" value="Nome do Grupo"/>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <p:outputLabel value="Status" for="status" class="Fs12 blue-text"/>
+            <p:selectOneButton  id="status" required="true" value="#{grupoProdutoController.grupoProduto.statusgrupo}"
+                                requiredMessage="Escolha um Status" class="status">
+                <f:selectItem itemLabel="Ativo" itemValue="true"/>
+                <f:selectItem itemLabel="Inativo" itemValue="false"/>
+            </p:selectOneButton>
+            <div class="EmptyBox10"/>
         </div>
     </div>
 </html>

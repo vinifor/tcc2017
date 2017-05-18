@@ -6,6 +6,7 @@ package br.com.tcc2017.controller;
 
 import br.com.tcc2017.dao.GrupoProdutoDao;
 import br.com.tcc2017.model.GrupoProduto;
+import br.com.tcc2017.util.Redirect;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,9 @@ public class GrupoProdutoController implements Serializable {
 
     //--------------------------------List--------------------------------------
     private List<GrupoProduto> grupoProdutos = new ArrayList<>();
+
+    //--------------------------------Util--------------------------------------
+    private final Redirect redirect = new Redirect();
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=METHODS=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
     //--------------------------------CRUD--------------------------------------
@@ -46,6 +50,7 @@ public class GrupoProdutoController implements Serializable {
     public void save() {
         grupoProdutoDao.save(grupoProduto);
         read();
+        redirect.goTo("grupoproduto/list.xhtml");
     }
 
     /**
@@ -54,6 +59,7 @@ public class GrupoProdutoController implements Serializable {
     public void create() {
         grupoProduto = new GrupoProduto();
         grupoProduto.setStatusgrupo(true);
+        redirect.goTo("grupoproduto/edit.xhtml");
     }
 
     /**
@@ -70,6 +76,7 @@ public class GrupoProdutoController implements Serializable {
      */
     public void edit(GrupoProduto grupoProduto) {
         this.grupoProduto = grupoProduto;
+        redirect.goTo("grupoproduto/edit.xhtml");
     }
 
     /**
@@ -77,8 +84,9 @@ public class GrupoProdutoController implements Serializable {
      *
      * @param actionEvent ActionEvent: Event from the view
      */
-    public void remove(ActionEvent actionEvent) {
-        grupoProduto = (GrupoProduto) actionEvent.getComponent().getAttributes().get("grupoProduto");
+    public void remove(GrupoProduto grupoProduto) {
+//        grupoProduto = (GrupoProduto) actionEvent.getComponent().getAttributes().get("grupoProduto");
+        this.grupoProduto = grupoProduto;
         grupoProdutoDao.remove(grupoProduto);
         read();
     }
@@ -88,17 +96,24 @@ public class GrupoProdutoController implements Serializable {
      */
     public void cancel() {
         grupoProduto = null;
-    }
-
-    public void changeStatus(ActionEvent actionEvent) {
-        grupoProduto = (GrupoProduto) actionEvent.getComponent().getAttributes().get("grupoProduto");
-        grupoProduto.setStatusgrupo(!grupoProduto.getStatusgrupo());
-        save();
+        redirect.goTo("grupoproduto/list.xhtml");
     }
 
     //------------------------------Business------------------------------------
+    public void changeStatus(ActionEvent actionEvent) {
+        grupoProduto = (GrupoProduto) actionEvent.getComponent().getAttributes().get("grupoProduto");
+        grupoProduto.setStatusgrupo(!grupoProduto.getStatusgrupo());
+        grupoProdutoDao.save(grupoProduto);
+        read();
+    }
+
+    public void open() {
+        read();
+        redirect.goTo("grupoproduto/list.xhtml");
+    }
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=GETTERS & SETTERS=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     //-------------------------------Entity-------------------------------------
+
     public GrupoProduto getGrupoProduto() {
         return grupoProduto;
     }

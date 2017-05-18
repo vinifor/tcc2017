@@ -22,10 +22,10 @@
 
                         <ul class="side-nav fixed" id="mobile-demo" style="max-width: 250px !important; position: fixed; transform: translateX(0%);">
                             <li>
-                                <p:link outcome="/pages/grupoproduto/list.xhtml" onclick="#{grupoProdutoController.read()}">
+                                <p:commandLink actionListener="#{grupoProdutoController.open()}">
                                     <!--<i class="icon-plus white"/>-->
                                     Grupo de Produtos
-                                </p:link>
+                                </p:commandLink>
                             </li>
                             <li>
                                 <p:commandLink actionListener="#{pessoaBusiness.read()}">

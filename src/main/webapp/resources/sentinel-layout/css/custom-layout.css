@@ -403,11 +403,17 @@ a{
 } 
 
 .status{
+    border-color: transparent;
     width: 100%;
 }
 
 .status .ui-button{
+    border-color: transparent;
     width: 49%;
+}
+
+.ui-button-text{
+    border-radius: 2px;
 }
 
 .ui-grid-col-1{
