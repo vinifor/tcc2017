@@ -12,7 +12,7 @@
                         <div class="EmptyBox10"/>
                         <div class="EmptyBox5"/>
                         <div class="ui-grid-row">
-                            <p:outputLabel value="#{grupoProduto.descgrupo}" class="Fs14"/>
+                            <p:outputLabel value="#{grupoProduto.descgrupo}" class="Fs14 grey-text text-darken-2"/>
                         </div>
                         <div class="EmptyBox10"/>
                         <div class="EmptyBox5"/>
@@ -20,13 +20,13 @@
                 </div>
                 <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
                     <div class="EmptyBox10"/>
-                    <p:commandLink class="waves-effect waves-light btn-block transparent black-text ShowOnDesktop"
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
                                    actionListener="#{grupoProdutoController.changeStatus}"
                                    update="listm" rendered="#{grupoProduto.statusgrupo}">
                         <i class="material-icons left">check</i>
                         <f:attribute name="grupoProduto" value="#{grupoProduto}" />
                     </p:commandLink>
-                    <p:commandLink class="waves-effect waves-light btn-block transparent black-text ShowOnDesktop"
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
                                    actionListener="#{grupoProdutoController.changeStatus}"
                                    update="listm" rendered="#{!grupoProduto.statusgrupo}">
                         <i class="material-icons left">block</i>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
                     <div class="EmptyBox10"/>
-                    <p:commandLink class="waves-effect waves-light btn-block transparent black-text"
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
                                    actionListener="#{grupoProdutoController.remove(grupoProduto)}"
                                    update="listm">
                         <i class="material-icons left">delete</i>

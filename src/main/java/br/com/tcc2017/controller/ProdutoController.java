@@ -5,7 +5,9 @@
 package br.com.tcc2017.controller;
 
 import br.com.tcc2017.dao.GrupoProdutoDao;
+import br.com.tcc2017.dao.ProdutoDao;
 import br.com.tcc2017.model.GrupoProduto;
+import br.com.tcc2017.model.Produto;
 import br.com.tcc2017.util.Redirect;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean
 @SessionScoped
-public class GrupoProdutoController implements Serializable {
+public class ProdutoController implements Serializable {
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-VARIABLES=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
     //--------------------------------EJB---------------------------------------
@@ -28,16 +30,18 @@ public class GrupoProdutoController implements Serializable {
      * Persistence class of Pessoa
      */
     @EJB
+    private ProdutoDao produtoDao;
+    @EJB
     private GrupoProdutoDao grupoProdutoDao;
 
     //-------------------------------Entity-------------------------------------
     /**
      * Pessoa instance
      */
-    private GrupoProduto grupoProduto = new GrupoProduto();
+    private Produto produto = new Produto();
 
     //--------------------------------List--------------------------------------
-    private List<GrupoProduto> grupoProdutos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     //--------------------------------Util--------------------------------------
     private final Redirect redirect = new Redirect();
@@ -48,44 +52,45 @@ public class GrupoProdutoController implements Serializable {
      * Save a Pessoa on database
      */
     public void save() {
-        grupoProdutoDao.save(grupoProduto);
+        produtoDao.save(produto);
         read();
-        redirect.goTo("grupoproduto/list.xhtml");
+        redirect.goTo("produto/list.xhtml");
     }
 
     /**
      * Creates a new Pessoa instance
      */
     public void create() {
-        grupoProduto = new GrupoProduto();
-        grupoProduto.setStatusgrupo(true);
-        redirect.goTo("grupoproduto/edit.xhtml");
+        produto = new Produto();
+        produto.setStatuspro(true);
+        produto.setImprimepro(true);
+        redirect.goTo("produto/edit.xhtml");
     }
 
     /**
      * Retrieve a list of pessoas
      */
     public void read() {
-        grupoProdutos = grupoProdutoDao.filter(null, new String[]{"id"}, null);
+        produtos = produtoDao.filter(null, new String[]{"id"}, null);
     }
 
     /**
      * Retrieves a Pessoa for edit
      *
-     * @param grupoProduto
+     * @param produto
      */
-    public void edit(GrupoProduto grupoProduto) {
-        this.grupoProduto = grupoProduto;
-        redirect.goTo("grupoproduto/edit.xhtml");
+    public void edit(Produto produto) {
+        this.produto = produto;
+        redirect.goTo("produto/edit.xhtml");
     }
 
     /**
      * Retrieves a Pessoa for remove
      *
-     * @param grupoProduto
+     * @param produto
      */
-    public void remove(GrupoProduto grupoProduto) {
-        grupoProdutoDao.remove(grupoProduto);
+    public void remove(Produto produto) {
+        produtoDao.remove(produto);
         read();
     }
 
@@ -93,39 +98,43 @@ public class GrupoProdutoController implements Serializable {
      * Cancel and clear the Pessoa instance
      */
     public void cancel() {
-        grupoProduto = null;
-        redirect.goTo("grupoproduto/list.xhtml");
+        produto = null;
+        redirect.goTo("produto/list.xhtml");
     }
 
     //------------------------------Business------------------------------------
-    public void changeStatus(GrupoProduto grupoProduto) {
-        grupoProduto.setStatusgrupo(!grupoProduto.getStatusgrupo());
-        grupoProdutoDao.save(grupoProduto);
+    public void changeStatus(Produto produto) {
+        produto.setStatuspro(!produto.getStatuspro());
+        produtoDao.save(produto);
         read();
     }
 
     public void open() {
         read();
-        redirect.goTo("grupoproduto/list.xhtml");
+        redirect.goTo("produto/list.xhtml");
+    }
+    
+    public List<GrupoProduto> getGrupoProdutos(){
+        return grupoProdutoDao.filter(new String[]{"statusgrupo = 'true'"}, new String[]{"descgrupo"}, null);
     }
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=GETTERS & SETTERS=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     //-------------------------------Entity-------------------------------------
 
-    public GrupoProduto getGrupoProduto() {
-        return grupoProduto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setGrupoProduto(GrupoProduto grupoProduto) {
-        this.grupoProduto = grupoProduto;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     //--------------------------------List--------------------------------------
-    public List<GrupoProduto> getGrupoProdutos() {
-        return grupoProdutos;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setGrupoProdutos(List<GrupoProduto> grupoProdutos) {
-        this.grupoProdutos = grupoProdutos;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     //------------------------------Atributes-----------------------------------

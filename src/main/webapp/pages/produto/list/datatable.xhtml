@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <p:dataTable value="#{produtoController.produtos}" widgetVar="listm" var="produto" 
+                 emptyMessage="Nenhum Registro" id="listm" style="width: 100%" reflow="true" >
+        <p:column>
+            <div class="ui-grid-col-10" style="margin-right: 0px !important; ">
+                <p:commandLink actionListener="#{produtoController.edit(produto)}" >
+                    <div class="EmptyBox10"/>
+                    <div class="EmptyBox5"/>
+                    <div class="ui-grid-row">
+                        <p:outputLabel value="#{produto.nomepro}" class="Fs14 grey-text text-darken-2"/>
+                    </div>
+                    <div class="EmptyBox10"/>
+                    <div class="EmptyBox5"/>
+                </p:commandLink>
+            </div>
+            <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
+                <div class="EmptyBox10"/>
+                <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
+                               actionListener="#{produtoController.changeStatus}"
+                               update="listm" rendered="#{produto.statuspro}">
+                    <i class="material-icons left">check</i>
+                    <f:attribute name="produto" value="#{produto}" />
+                </p:commandLink>
+                <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
+                               actionListener="#{produtoController.changeStatus}"
+                               update="listm" rendered="#{!produto.statusgrupo}">
+                    <i class="material-icons left">block</i>
+                    <f:attribute name="produto" value="#{produto}" />
+                </p:commandLink>
+            </div>
+            <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
+                <div class="EmptyBox10"/>
+                <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                               actionListener="#{produtoController.remove(produto)}"
+                               update="listm">
+                    <i class="material-icons left">delete</i>
+                </p:commandLink>
+            </div>
+        </p:column>
+    </p:dataTable>
+</html>

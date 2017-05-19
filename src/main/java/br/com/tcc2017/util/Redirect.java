@@ -20,9 +20,6 @@ import javax.faces.context.FacesContext;
 public class Redirect implements Serializable {
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=AFA-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-    /**
-     * Redireciona para INDEX AFA
-     */
     public void home() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("/TCC2017/index.xhtml");
@@ -31,10 +28,6 @@ public class Redirect implements Serializable {
         }
     }
 
-    /**
-     * Redireciona para Lista de Planos
-     * @param where
-     */
     public void goTo(String where) {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("/TCC2017/pages/" + where);

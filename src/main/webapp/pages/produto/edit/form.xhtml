@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+
+    <div class="row">
+        <div class="col s12 m8 l8">
+            <div class="input-field field-blue-500">
+                <p:inputText type="text" value="#{produtoController.produto.nomepro}"
+                             required="true" requiredMessage="Nome do Produto"
+                             id="nomepro"/>
+                <p:outputLabel for="nomepro" value="Nome do Produto"/>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+
+            <p:outputLabel value="Grupo" for="grupoProdutoId" class="Fs12 blue-text"/><br/>
+            <p:selectOneMenu value="#{produtoController.produto.grupoProdutoId}"
+                             required="true" requiredMessage="Nome do Produto"
+                             id="grupoProdutoId" style="width: 100%; border-color: transparent; border-bottom-color: gray">
+                <f:selectItem itemValue="#{null}" itemLabel="Selecione"/>
+                <f:selectItems value="#{produtoController.grupoProdutos}" var="grupoProduto" 
+                               itemLabel="#{grupoProduto.descgrupo}" itemValue="#{grupoProduto}"/>
+            </p:selectOneMenu>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4 l4">
+            <div class="input-field field-blue-500">
+                <p:inputText type="text" value="#{produtoController.produto.precopro}"
+                             required="true" requiredMessage="Nome do Produto"
+                             id="precopro"
+                             onkeyup="$(this).maskMoney({prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true});
+                                     $(this).maskMoney('mask');"
+                             onblur="$(this).maskMoney({prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true});
+                                     bl($(this))"
+                             onfocus="$(this).maskMoney({prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true});
+                                     fo($(this))"/>
+                <p:outputLabel for="precopro" value="Preço do Produto"/>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <p:outputLabel value="Status" for="statuspro" class="Fs12 blue-text"/>
+            <p:selectOneButton  id="statuspro" required="true" value="#{produtoController.produto.statuspro}"
+                                requiredMessage="Escolha um Status" class="status">
+                <f:selectItem itemLabel="Ativo" itemValue="true"/>
+                <f:selectItem itemLabel="Inativo" itemValue="false"/>
+            </p:selectOneButton>
+            <div class="EmptyBox10"/>
+        </div>
+        <div class="col s12 m4 l4">
+            <p:outputLabel value="Imprimir?" for="imprimepro" class="Fs12 blue-text"/>
+            <p:selectOneButton  id="imprimepro" required="true" value="#{produtoController.produto.imprimepro}"
+                                requiredMessage="Escolha um Status" class="status">
+                <f:selectItem itemLabel="Sim" itemValue="true"/>
+                <f:selectItem itemLabel="Não" itemValue="false"/>
+            </p:selectOneButton>
+            <div class="EmptyBox10"/>
+        </div>
+    </div>
+</html>

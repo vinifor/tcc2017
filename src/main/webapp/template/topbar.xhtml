@@ -28,13 +28,13 @@
                                 </p:commandLink>
                             </li>
                             <li>
-                                <p:commandLink actionListener="#{pessoaBusiness.read()}">
+                                <p:commandLink actionListener="#{produtoController.open()}">
                                     <!--<i class="icon-user-outline white"/>-->
                                     Produtos
                                 </p:commandLink>
                             </li>
                             <li>
-                                <p:commandLink  actionListener="#{redirectBusiness.logout()}">
+                                <p:commandLink>
                                     <!--<i class="icon-power white"/>-->
                                     Sair
                                 </p:commandLink>
@@ -48,6 +48,10 @@
     <script>
         $(document).ready(function () {
             $(".button-collapse").sideNav();
+        });
+
+        $(document).ready(function () {
+            $('select').material_select();
         });
     </script>
 </ui:composition>
