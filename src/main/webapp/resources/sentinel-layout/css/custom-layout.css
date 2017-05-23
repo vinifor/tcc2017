@@ -402,6 +402,30 @@ a{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00AEEF', endColorstr='#00AEEF', GradientType=0 );
 } 
 
+.ui-selectonemenu{
+    width: 100% !important; 
+    border-color: transparent !important; 
+    border-bottom: 1px solid #4e4e4e !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+.ui-selectonemenu:hover{
+    width: 100% !important; 
+    border-color: transparent !important; 
+    border-bottom: 1px solid #2196F3 !important;
+    box-shadow: 0 1px 0 0 #2196F3 !important;
+}
+
+.ui-selectonemenu-trigger{
+    border-color: transparent !important; 
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+.ui-selectonemenu-label{
+    margin-top: 2px !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
 .status{
     border-color: transparent;
     width: 100%;

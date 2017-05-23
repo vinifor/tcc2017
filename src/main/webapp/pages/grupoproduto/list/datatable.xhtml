@@ -7,7 +7,7 @@
         <p:dataTable value="#{grupoProdutoController.grupoProdutos}" widgetVar="listm" var="grupoProduto" 
                      emptyMessage="Nenhum Registro" id="listm" style="width: 100%" reflow="true" >
             <p:column>
-                <div class="ui-grid-col-10" style="margin-right: 0px !important; ">
+                <div class="col s8 m10 l10" style="margin-right: 0px !important; ">
                     <p:commandLink actionListener="#{grupoProdutoController.edit(grupoProduto)}" >
                         <div class="EmptyBox10"/>
                         <div class="EmptyBox5"/>
@@ -18,22 +18,20 @@
                         <div class="EmptyBox5"/>
                     </p:commandLink>
                 </div>
-                <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
+                <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
                     <div class="EmptyBox10"/>
-                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
-                                   actionListener="#{grupoProdutoController.changeStatus}"
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                                   actionListener="#{grupoProdutoController.changeStatus(grupoProduto)}"
                                    update="listm" rendered="#{grupoProduto.statusgrupo}">
                         <i class="material-icons left">check</i>
-                        <f:attribute name="grupoProduto" value="#{grupoProduto}" />
                     </p:commandLink>
-                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2 ShowOnDesktop"
-                                   actionListener="#{grupoProdutoController.changeStatus}"
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                                   actionListener="#{grupoProdutoController.changeStatus(grupoProduto)}"
                                    update="listm" rendered="#{!grupoProduto.statusgrupo}">
                         <i class="material-icons left">block</i>
-                        <f:attribute name="grupoProduto" value="#{grupoProduto}" />
                     </p:commandLink>
                 </div>
-                <div class="ui-grid-col-1 TexAlCenter" style="margin-right: 0px !important; ">
+                <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
                     <div class="EmptyBox10"/>
                     <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
                                    actionListener="#{grupoProdutoController.remove(grupoProduto)}"

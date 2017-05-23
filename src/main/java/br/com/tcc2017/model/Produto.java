@@ -37,7 +37,6 @@ public class Produto implements Serializable {
     @Size(max = 50)
     @Column(name = "nomepro")
     private String nomepro;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precopro")
     private BigDecimal precopro;
     @Column(name = "imprimepro")
@@ -158,7 +157,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.tcc2017.model.Produto[ id=" + id + " ]";
+        return "Produto{" + "id=" + id + ", nomepro=" + nomepro + ", precopro=" + precopro + ", imprimepro=" + imprimepro + ", statuspro=" + statuspro + ", grupoProdutoId=" + grupoProdutoId + '}';
     }
-    
+
 }
