@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+
+    <div class="row">
+        <div class="col s12 m6 l6">
+            <div class="input-field field-blue-500">
+                <p:inputText type="text" value="#{ingredienteController.ingrediente.descing}"
+                             required="true" requiredMessage="Nome do Ingrediente"
+                             id="nomepro"/>
+                <p:outputLabel for="nomepro" value="Nome do Ingrediente"/>
+            </div>
+        </div>
+        <div class="col s12 m3 l3">
+
+            <p:outputLabel value="Grupo" for="grupoIngId" class="Fs12 blue-text"/><br/>
+            <p:selectOneMenu value="#{ingredienteController.ingrediente.grupoIngId}"
+                             required="true" requiredMessage="Nome do Produto"
+                             id="grupoIngId" converter="grupoIngConverter">
+                <f:selectItem itemValue="#{null}" itemLabel="Selecione"/>
+                <f:selectItems value="#{ingredienteController.grupoIngs}" var="grupoIng" 
+                               itemLabel="#{grupoIng.descgruing}" itemValue="#{grupoIng}"/>
+            </p:selectOneMenu>
+        </div>
+        <div class="col s12 m3 l3">
+            <p:outputLabel value="Status" for="statuspro" class="Fs12 blue-text"/>
+            <p:selectOneButton  id="statuspro" required="true" value="#{ingredienteController.ingrediente.statusing}"
+                                requiredMessage="Escolha um Status" class="status">
+                <f:selectItem itemLabel="Ativo" itemValue="true"/>
+                <f:selectItem itemLabel="Inativo" itemValue="false"/>
+            </p:selectOneButton>
+            <div class="EmptyBox10"/>
+        </div>
+    </div>
+</html>

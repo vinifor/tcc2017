@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+
+    <div class="row">
+        <div class="col s6">
+            <p:commandLink class="waves-effect waves-light btn-large Wid100 red darken-1"
+                           actionListener="#{grupoIngController.cancel()}" process="@this">
+                Cancelar 
+            </p:commandLink>
+        </div> 
+        <div class="col s6">
+            <p:commandLink class="waves-effect waves-light btn-large Wid100 green darken-1" 
+                           actionListener="#{grupoIngController.save()}">
+                Salvar
+            </p:commandLink>
+        </div> 
+    </div> 
+</html>

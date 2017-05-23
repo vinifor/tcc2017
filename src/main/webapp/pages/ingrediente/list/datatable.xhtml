@@ -3,18 +3,31 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <p:dataTable value="#{produtoController.produtos}" widgetVar="listm" var="produto" 
+    <p:dataTable value="#{ingredienteController.ingredientes}" widgetVar="listm" var="produto" 
                  emptyMessage="Nenhum Registro" id="listm" style="width: 100%" reflow="true" >
         <p:column>
+            <f:facet name="header">
+                <div class="col s4 m10 l10 TexAlLeft">
+                    <div class="col s12 m8 l8"> 
+                        <p:outputLabel value="Ingrediente" class="Fs14 grey-text text-darken-2"/>
+                    </div>
+                    
+                    <div class="col s12 m4 l4"> 
+                        <p:outputLabel value="Grupo" class="Fs14 grey-text text-darken-2"/>
+                    </div>
+                </div>
+            </f:facet>
             <div class="col s8 m10 l10 " style="margin-right: 0px !important; ">
-                <p:commandLink actionListener="#{produtoController.edit(produto)}" >
+                <p:commandLink actionListener="#{ingredienteController.edit(produto)}" >
                     <div class="EmptyBox10"/>
                     <div class="EmptyBox5"/>
-                    <div class="col s6">
-                        <p:outputLabel value="#{produto.nomepro}" class="Fs14 grey-text text-darken-2"/>
+                    <div class="col s12 m8 l8"> 
+                        <p:outputLabel value="Ingrediente: " class="Fs14 FontBold grey-text text-darken-2 hide-on-med-and-up"/>
+                        <p:outputLabel value="#{produto.descing}" class="Fs14 grey-text text-darken-2"/>
                     </div>
-                    <div class="col s6">
-                        <p:outputLabel value="#{produto.grupoProdutoId.descgrupo}" class="Fs14 grey-text text-darken-2"/>
+                    <div class="col s12 m4 l4"> 
+                        <p:outputLabel value="Grupo: " class="Fs14 FontBold grey-text text-darken-2 hide-on-med-and-up"/>
+                        <p:outputLabel value="#{produto.grupoIngId.descgruing}" class="Fs14 grey-text text-darken-2"/>
                     </div>
                     <div class="EmptyBox10"/>
                     <div class="EmptyBox5"/>
@@ -23,20 +36,20 @@
             <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
                 <div class="EmptyBox10"/>
                 <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
-                               actionListener="#{produtoController.changeStatus(produto)}"
-                               update="listm" rendered="#{produto.statuspro}">
+                               actionListener="#{ingredienteController.changeStatus(produto)}"
+                               update="listm" rendered="#{produto.statusing}">
                     <i class="material-icons left">check</i>
                 </p:commandLink>
                 <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
-                               actionListener="#{produtoController.changeStatus(produto)}"
-                               update="listm" rendered="#{!produto.statuspro}">
+                               actionListener="#{ingredienteController.changeStatus(produto)}"
+                               update="listm" rendered="#{!produto.statusing}">
                     <i class="material-icons left">block</i>
                 </p:commandLink>
             </div>
             <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
                 <div class="EmptyBox10"/>
                 <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
-                               actionListener="#{produtoController.remove(produto)}"
+                               actionListener="#{ingredienteController.remove(produto)}"
                                update="listm">
                     <i class="material-icons left">delete</i>
                 </p:commandLink>

@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+
+    <ui:define name="content">
+        <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
+        <div>
+            <h:form id="form" class="row sticky-body-open" prependId="false">
+                <p:remoteCommand name="ini" autoRun="true" update=":form:listm"
+                                 actionListener="#{grupoIngController.read()}"/>
+
+                <div class="row">
+                    <ui:include src="list/header.xhtml"/>
+                    <ui:include src="list/datatable.xhtml"/>
+                    <ui:include src="list/footer.xhtml"/>
+                </div>
+
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

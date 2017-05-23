@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <div class="ui-grid-row">
+        <p:dataTable value="#{grupoIngController.grupoIngs}" widgetVar="listm" var="grupoProduto" 
+                     emptyMessage="Nenhum Registro" id="listm" style="width: 100%" reflow="true" >
+            <p:column>
+                <div class="col s8 m10 l10" style="margin-right: 0px !important; ">
+                    <p:commandLink actionListener="#{grupoIngController.edit(grupoProduto)}" >
+                        <div class="EmptyBox10"/>
+                        <div class="EmptyBox5"/>
+                        <div class="ui-grid-row">
+                            <p:outputLabel value="#{grupoProduto.descgruing}" class="Fs14 grey-text text-darken-2"/>
+                        </div>
+                        <div class="EmptyBox10"/>
+                        <div class="EmptyBox5"/>
+                    </p:commandLink>
+                </div>
+                <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
+                    <div class="EmptyBox10"/>
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                                   actionListener="#{grupoIngController.changeStatus(grupoProduto)}"
+                                   update="listm" rendered="#{grupoProduto.statusgruing}">
+                        <i class="material-icons left">check</i>
+                    </p:commandLink>
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                                   actionListener="#{grupoIngController.changeStatus(grupoProduto)}"
+                                   update="listm" rendered="#{!grupoProduto.statusgruing}">
+                        <i class="material-icons left">block</i>
+                    </p:commandLink>
+                </div>
+                <div class="col s2 m1 l1 TexAlCenter" style="margin-right: 0px !important; ">
+                    <div class="EmptyBox10"/>
+                    <p:commandLink class="waves-effect waves-light btn-block transparent grey-text text-darken-2"
+                                   actionListener="#{grupoIngController.remove(grupoProduto)}"
+                                   update="listm">
+                        <i class="material-icons left">delete</i>
+                    </p:commandLink>
+                </div>
+            </p:column>
+        </p:dataTable>
+    </div>
+</html>
