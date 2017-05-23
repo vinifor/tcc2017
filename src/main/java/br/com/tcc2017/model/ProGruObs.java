@@ -36,6 +36,7 @@ public class ProGruObs implements Serializable {
     private Produto produtoId;
 
     public ProGruObs() {
+        //TODO teste de to do
     }
 
     public ProGruObs(Integer id) {
@@ -75,7 +76,6 @@ public class ProGruObs implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof ProGruObs)) {
             return false;
         }

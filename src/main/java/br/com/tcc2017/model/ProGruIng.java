@@ -33,7 +33,7 @@ public class ProGruIng implements Serializable {
     private GrupoIng grupoIngId;
     @JoinColumn(name = "Produto_Id", referencedColumnName = "Id")
     @ManyToOne
-    private Produto produtoId;
+    private Produto ingredienteId;
 
     public ProGruIng() {
     }
@@ -59,11 +59,11 @@ public class ProGruIng implements Serializable {
     }
 
     public Produto getProdutoId() {
-        return produtoId;
+        return ingredienteId;
     }
 
-    public void setProdutoId(Produto produtoId) {
-        this.produtoId = produtoId;
+    public void setProdutoId(Produto ingredienteId) {
+        this.ingredienteId = ingredienteId;
     }
 
     @Override
@@ -75,7 +75,6 @@ public class ProGruIng implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof ProGruIng)) {
             return false;
         }
@@ -88,7 +87,7 @@ public class ProGruIng implements Serializable {
 
     @Override
     public String toString() {
-        return "ProGruIng{" + "id=" + id + ", grupoIngId=" + grupoIngId + ", produtoId=" + produtoId + '}';
+        return "ProGruIng{" + "id=" + id + ", grupoIngId=" + grupoIngId + ", ingredienteId=" + ingredienteId + '}';
     }
     
 }
